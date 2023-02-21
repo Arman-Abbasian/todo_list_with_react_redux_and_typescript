@@ -18,7 +18,7 @@ const Todos = () => {
         <div className="flex justify-between items-center bg-cyan-200 py-2 px-4 rounded">
                {todoState.todos &&  todoState.todos instanceof Array &&
                 todoState.todos.map((item:ShowITodo)=>{
-                  return <div>
+                  return <div key={item.id} className="flex justify-between items-center bg-cyan-200 py-2 px-4 rounded gap-6">
                     <p>{item.title}</p>
                     <p>{item.dueDate}</p>
                     <p>{item.completed}</p>
