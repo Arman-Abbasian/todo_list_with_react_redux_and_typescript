@@ -1,0 +1,11 @@
+{
+    "todos": [
+      {
+        "id": 1,
+        "title": "json-server",
+        "completed": false,
+        "dueDate":"20-11-2022",
+        "date":"30-11-2022"
+      }
+    ]
+  }
