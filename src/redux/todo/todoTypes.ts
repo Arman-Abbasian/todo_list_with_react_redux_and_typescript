@@ -21,8 +21,8 @@ type getTodoType={
 export type addTodoType={
   title: string,
   completed: boolean,
-  date:Date,
-  dueDate:Date
+  date:string,
+  dueDate:string
 }
 export type editTodoType={
   title: string,

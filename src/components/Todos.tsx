@@ -22,7 +22,7 @@ const Todos = () => {
                     <p>{item.title}</p>
                     <p>{item.dueDate}</p>
                     <p>{item.completed}</p>
-                    <BsTrash />
+                    <BsTrash onClick={()=>dispatch(DeleteTodos(item.id))} />
                     <BsCircle />
                   </div>
                 })

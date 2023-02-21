@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AddTodos } from '../redux/todo/todoActions';
 const AddTodo = () => {
+    const dispatch=useDispatch();
     const [formInput,setFormInput]=useState({title:"",dueDate:""});
     const changeHandler=(e: React.FormEvent<HTMLInputElement>):void=>{
         setFormInput({...formInput,[e.currentTarget.name]:e.currentTarget.value})
     }
     const submitHandler=(e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-        // addTodo({...formValue,completed:false,date:new Date().toDateString()});
+        dispatch(AddTodos({...formInput,completed:false,date:new Date().toDateString()}));
         console.log(formInput)
         setFormInput({title:"",dueDate:""})
      }
