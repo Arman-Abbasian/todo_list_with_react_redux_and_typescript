@@ -11,7 +11,7 @@ export const DELETE_TODO_LOADING = "DELETE_TODO_LOADING";
 export const DELETE_TODO_FAIL = "DELETE_TODO_FAIL";
 export const DELETE_TODO_SUCCESS = "DELETE_TODO_SUCCESS";
 
-type getTodoType={
+export type getTodoType={
     id: number,
     title: string,
     completed: boolean,
@@ -27,8 +27,14 @@ export type addTodoType={
 export type editTodoType={
   title: string,
   completed: boolean,
-  dueDate:Date
+  dueDate:string,
+  date:string,
 }
+
+export type editTodoCompletedType={
+  completed: boolean,
+}
+
 export type TodosType = {
   map: any;
   abilities: getTodoType[],

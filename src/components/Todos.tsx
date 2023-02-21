@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { BsCircle,BsCheck,BsTrash } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore } from "../redux/store";
-import { DeleteTodos, EditTodos, GetTodos } from "../redux/todo/todoActions";
+import { DeleteTodos, EditTodoCompleted, EditTodos, GetTodos } from "../redux/todo/todoActions";
 import Todo, { ShowITodo } from "./Todo";
+import { getTodoType } from "../redux/todo/todoTypes";
 
 
 const Todos = () => {
@@ -14,6 +15,15 @@ const Todos = () => {
     dispatch(GetTodos())
   },[])
   console.log(typeof todoState)
+  const changeCompletedCondition=(id:number|string)=>(event: any)=>{
+    if(todoState.todos instanceof Array){
+      console.log(todoState.todos)
+      const itemm:getTodoType|any=todoState.todos.find((item:getTodoType)=>item.id===id) 
+      itemm.completed=!itemm.completed
+      console.log(itemm)
+         
+    }
+  }
     return ( 
         <div className="flex justify-between items-center bg-cyan-200 py-2 px-4 rounded">
                {todoState.todos &&  todoState.todos instanceof Array &&
@@ -22,8 +32,13 @@ const Todos = () => {
                     <p>{item.title}</p>
                     <p>{item.dueDate}</p>
                     <p>{item.completed}</p>
-                    <BsTrash onClick={()=>dispatch(DeleteTodos(item.id))} />
-                    <BsCircle />
+                    <div className="flex items-center gap-2">
+                      {item.completed ? 
+                      <BsCircle onClick={changeCompletedCondition(item.id)}  /> : 
+                      <BsCheck onClick={changeCompletedCondition(item.id)} />
+                      }
+                    <BsTrash className="cursor-pointer text-red-600" onClick={()=>dispatch(DeleteTodos(item.id))} />
+                  </div>
                   </div>
                 })
                }

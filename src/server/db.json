@@ -1,3 +1,11 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "title": "todo 2",
+      "dueDate": "2023-02-20",
+      "completed": false,
+      "date": "Tue Feb 21 2023",
+      "id": 1
+    }
+  ]
 }
