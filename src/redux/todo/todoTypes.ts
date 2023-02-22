@@ -17,16 +17,16 @@ export type getTodoType={
     completed: boolean,
     dueDate:string
 }
-export type addTodoType={
-  title: string,
-  completed: boolean,
-  dueDate:string
-}
 export type editTodoType={
   id:number,
   title: string,
   completed: boolean,
   dueDate:string,
+}
+export type addTodoType={
+  title: string,
+  completed: boolean,
+  dueDate:string
 }
 
 export type editTodoCompletedType={

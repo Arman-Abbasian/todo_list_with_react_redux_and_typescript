@@ -96,7 +96,7 @@ export const AddTodos = (todo:addTodoType) => async (dispatch: Dispatch<AddTodoD
 }
   };
 
-  export const EditTodoCompleted = (id:string|number,todo:getTodoType) => async (dispatch: Dispatch<EditTodoDispatchTypes>) => {
+  export const EditTodoCompleted = (id:string|number,todo:editTodoType) => async (dispatch: Dispatch<EditTodoDispatchTypes>) => {
     try {
       dispatch({
         type: EDIT_TODO_LOADING

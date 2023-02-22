@@ -10,15 +10,14 @@
     {
       "title": "todo 3",
       "dueDate": "2023-02-24",
-      "completed": true,
+      "completed": false,
       "date": "Wed Feb 22 2023",
       "id": 2
     },
     {
-      "title": "todo 4",
-      "dueDate": "2023-02-25",
+      "title": "todo 1",
+      "dueDate": "2023-02-06",
       "completed": false,
-      "date": "Wed Feb 22 2023",
       "id": 3
     }
   ]
