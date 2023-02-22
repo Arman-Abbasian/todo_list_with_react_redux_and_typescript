@@ -28,17 +28,18 @@ const Todos = () => {
         <div className="flex flex-col gap-3 justify-between items-center mb-10">
                {todoState.todos &&  todoState.todos instanceof Array &&
                 todoState.todos.map((item:ShowITodo)=>{
-                  return <div key={item.id} className="flex justify-between items-center bg-cyan-200 py-2 px-4 rounded gap-6 w-full">
-                    <p>{item.title}</p>
+                  return <div key={item.id} className={`flex justify-between items-center bg-cyan-200 py-2 px-4 rounded gap-6 w-full ${item.completed?'bg-cyan-700 opacity-30':''}`}>
+                    {/* <p>{item.title}</p>
                     <p>{item.dueDate}</p>
                     <p>{item.completed}</p>
                     <div className="flex items-center gap-2">
-                      {item.completed ? 
-                      <BsCircle className="cursor-pointer" onClick={changeCompletedCondition(item.id)}  /> : 
-                      <BsCheck className="cursor-pointer text-red-600" onClick={changeCompletedCondition(item.id)} />
+                      {item.completed===false ? 
+                      <BsCircle className="cursor-pointer" onClick={changeCompletedCondition(item.id)}  /> 
+                      : 
+                      <BsCheck className="cursor-pointer text-cyan-900" onClick={changeCompletedCondition(item.id)} />
                       }
                     <BsTrash className="cursor-pointer text-red-600" onClick={()=>dispatch(DeleteTodos(item.id))} />
-                  </div>
+                  </div> */}
                   </div>
                 })
                }

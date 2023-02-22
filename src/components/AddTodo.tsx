@@ -9,16 +9,16 @@ const AddTodo = () => {
     }
     const submitHandler=(e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-        dispatch(AddTodos({...formInput,completed:false,date:new Date().toDateString()}));
+        dispatch(AddTodos({...formInput,completed:false}));
         console.log(formInput)
         setFormInput({title:"",dueDate:""})
      }
     return ( 
-        <div className='w-full'>
+        <div className='w-full mb-10'>
             <form onSubmit={submitHandler} className='flex flex-col gap-4'>
-                <input type="text" name='title' value={formInput.title} onChange={changeHandler} className='rounded' />
-                <input type="date" name='dueDate' value={formInput.dueDate} onChange={changeHandler} className='rounded' />
-                <input type="submit" value="Add" className='w-full rounded p-2 bg-cyan-500 cursor-pointer' />
+                <input type="text" name='title' value={formInput.title} onChange={changeHandler} className='rounded border-cyan-600 focus:border-none focus:ring-1 focus:ring-cyan-400' />
+                <input type="date" name='dueDate' value={formInput.dueDate} onChange={changeHandler} className='rounded border-cyan-600 focus:border-none focus:ring-1 focus:ring-cyan-400' />
+                <input type="submit" value="Add" className='w-full rounded p-2 bg-cyan-500 hover:bg-cyan-300 cursor-pointer' />
             </form>
         </div>
      );
