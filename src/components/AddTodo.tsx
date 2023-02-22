@@ -14,11 +14,11 @@ const AddTodo = () => {
         setFormInput({title:"",dueDate:""})
      }
     return ( 
-        <div>
-            <form onSubmit={submitHandler}>
-                <input type="text" name='title' value={formInput.title} onChange={changeHandler} />
-                <input type="date" name='dueDate' value={formInput.dueDate} onChange={changeHandler} />
-                <input type="submit" value="Add" />
+        <div className='w-full'>
+            <form onSubmit={submitHandler} className='flex flex-col gap-4'>
+                <input type="text" name='title' value={formInput.title} onChange={changeHandler} className='rounded' />
+                <input type="date" name='dueDate' value={formInput.dueDate} onChange={changeHandler} className='rounded' />
+                <input type="submit" value="Add" className='w-full rounded p-2 bg-cyan-500 cursor-pointer' />
             </form>
         </div>
      );

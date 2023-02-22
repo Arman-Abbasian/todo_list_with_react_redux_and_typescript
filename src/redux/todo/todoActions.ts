@@ -101,7 +101,7 @@ export const AddTodos = (todo:addTodoType) => async (dispatch: Dispatch<AddTodoD
       dispatch({
         type: EDIT_TODO_LOADING
       })
-      await axios.put(`http://localhost:4000/todos/${id}`,{todo})
+      await axios.put(`http://localhost:4000/todos/${id}`,todo)
       const res= await axios.get(`http://localhost:4000/todos`)
       console.log(res.data)
       dispatch({

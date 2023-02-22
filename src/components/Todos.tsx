@@ -20,22 +20,22 @@ const Todos = () => {
       console.log(todoState.todos)
       const itemm:getTodoType|any=todoState.todos.find((item:getTodoType)=>item.id===id) 
       itemm.completed=!itemm.completed
-      console.log(itemm)
+      dispatch(EditTodoCompleted(itemm.id,itemm))
          
     }
   }
     return ( 
-        <div className="flex justify-between items-center bg-cyan-200 py-2 px-4 rounded">
+        <div className="flex flex-col gap-3 justify-between items-center mb-10">
                {todoState.todos &&  todoState.todos instanceof Array &&
                 todoState.todos.map((item:ShowITodo)=>{
-                  return <div key={item.id} className="flex justify-between items-center bg-cyan-200 py-2 px-4 rounded gap-6">
+                  return <div key={item.id} className="flex justify-between items-center bg-cyan-200 py-2 px-4 rounded gap-6 w-full">
                     <p>{item.title}</p>
                     <p>{item.dueDate}</p>
                     <p>{item.completed}</p>
                     <div className="flex items-center gap-2">
                       {item.completed ? 
-                      <BsCircle onClick={changeCompletedCondition(item.id)}  /> : 
-                      <BsCheck onClick={changeCompletedCondition(item.id)} />
+                      <BsCircle className="cursor-pointer" onClick={changeCompletedCondition(item.id)}  /> : 
+                      <BsCheck className="cursor-pointer text-red-600" onClick={changeCompletedCondition(item.id)} />
                       }
                     <BsTrash className="cursor-pointer text-red-600" onClick={()=>dispatch(DeleteTodos(item.id))} />
                   </div>

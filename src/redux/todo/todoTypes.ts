@@ -25,6 +25,7 @@ export type addTodoType={
   dueDate:string
 }
 export type editTodoType={
+  id:number,
   title: string,
   completed: boolean,
   dueDate:string,
