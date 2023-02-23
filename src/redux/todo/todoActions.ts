@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import axios from "axios";
-import { AddTodoDispatchTypes, addTodoType,editTodoType, ADD_TODO_FAIL, ADD_TODO_LOADING, ADD_TODO_SUCCESS, DeleteTodoDispatchTypes, DELETE_TODO_FAIL, DELETE_TODO_LOADING, DELETE_TODO_SUCCESS, EditTodoDispatchTypes, EDIT_TODO_FAIL, EDIT_TODO_LOADING, EDIT_TODO_SUCCESS, GetTodoDispatchTypes, GET_TODOS_FAIL, GET_TODOS_LOADING, GET_TODOS_SUCCESS, editTodoCompletedType, getTodoType} from "./todoTypes";
+import { AddTodoDispatchTypes, addTodoType,editTodoType, ADD_TODO_FAIL, ADD_TODO_LOADING, ADD_TODO_SUCCESS, DeleteTodoDispatchTypes, DELETE_TODO_FAIL, DELETE_TODO_LOADING, DELETE_TODO_SUCCESS, EditTodoDispatchTypes, EDIT_TODO_FAIL, EDIT_TODO_LOADING, EDIT_TODO_SUCCESS, GetTodoDispatchTypes, GET_TODOS_FAIL, GET_TODOS_LOADING, GET_TODOS_SUCCESS, editTodoCompletedType, getTodoType, SHOW_TODO_EDIT_BOX} from "./todoTypes";
 import type {} from 'redux-thunk/extend-redux';
 
 export const GetTodos = () => async (dispatch: Dispatch<GetTodoDispatchTypes>) => {
@@ -119,3 +119,20 @@ export const AddTodos = (todo:addTodoType) => async (dispatch: Dispatch<AddTodoD
     }
 }
   };
+
+  export const ShowEditBox = () => async (dispatch: Dispatch) => {
+    try {
+      dispatch({
+        type: SHOW_TODO_EDIT_BOX
+      })
+    }catch(err) {
+        let message = 'Unknown Error'
+        if (err instanceof Error){ message = err.message
+        dispatch({
+          type: EDIT_TODO_FAIL,
+          payload:err.message
+        })
+    }
+}
+      
+}

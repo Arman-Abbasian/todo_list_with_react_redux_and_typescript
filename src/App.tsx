@@ -5,18 +5,22 @@ import AddTodo from './components/AddTodo';
 import TodoEditedForm from './components/TodoEditedForm';
 import Todos from './components/Todos';
 import { RootStore } from './redux/store';
+import {useState} from 'react'
 
 function App() {
+  const [showEdit,setShowEdit]=useState(false)
   const dispatch=useDispatch();
     const todoState = useSelector((state:RootStore) => state.todo);
-    const sendTodoId=(id:number|string)=>{
+    const changeEditForm=(id:number|string)=>{
       console.log(id)
     }
   return (
     <div className="container mx-auto max-w-xl p-3">
+      <div className={``}>
       <TodoEditedForm />
+      </div>
       <AddTodo />
-      <Todos sendTodoId={sendTodoId} />
+      <Todos changeEditForm={changeEditForm} showEdit={showEdit} />
     </div>
   );
 }

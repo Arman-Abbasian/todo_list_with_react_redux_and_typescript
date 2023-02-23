@@ -1,4 +1,4 @@
-import { AddTodoDispatchTypes, ADD_TODO_FAIL, ADD_TODO_LOADING, ADD_TODO_SUCCESS, DeleteTodoDispatchTypes, DELETE_TODO_FAIL, DELETE_TODO_LOADING, DELETE_TODO_SUCCESS, EditTodoDispatchTypes, EDIT_TODO_FAIL, EDIT_TODO_LOADING, EDIT_TODO_SUCCESS, GetTodoDispatchTypes, GET_TODOS_FAIL, GET_TODOS_LOADING, GET_TODOS_SUCCESS, TodosType } from "./todoTypes";
+import { AddTodoDispatchTypes, ADD_TODO_FAIL, ADD_TODO_LOADING, ADD_TODO_SUCCESS, DeleteTodoDispatchTypes, DELETE_TODO_FAIL, DELETE_TODO_LOADING, DELETE_TODO_SUCCESS, EditTodoDispatchTypes, EDIT_TODO_FAIL, EDIT_TODO_LOADING, EDIT_TODO_SUCCESS, GetTodoDispatchTypes, GET_TODOS_FAIL, GET_TODOS_LOADING, GET_TODOS_SUCCESS, SHOW_TODO_EDIT_BOX, TodosType } from "./todoTypes";
 
   
   interface InitialState {
@@ -19,78 +19,86 @@ import { AddTodoDispatchTypes, ADD_TODO_FAIL, ADD_TODO_LOADING, ADD_TODO_SUCCESS
         return {
           loading: false,
           todos:[],
-          error:"payload.message"
+          error:"payload.message",
+    
         }
       case GET_TODOS_LOADING:
         return {
           loading: true,
           todos:[],
-          error:""
+          error:"",
+    
         }
       case GET_TODOS_SUCCESS:
         return {
           loading: false,
           todos: action.payload,
-          error:""
+          error:"",
+    
         }
         case ADD_TODO_FAIL:
         return {
           loading: false,
           todos:[],
-          error:action.payload
+          error:action.payload,
+    
         }
       case ADD_TODO_LOADING:
         return {
           loading: true,
           todos:[],
-          error:""
+          error:"",
+    
         }
       case ADD_TODO_SUCCESS:
         return {
           loading: false,
           todos: action.payload,
-          error:""
+          error:"",
+    
         }
         case EDIT_TODO_FAIL:
         return {
           loading: false,
           todos:[],
-          error:action.payload
+          error:action.payload,
+    
         }
       case EDIT_TODO_LOADING:
         return {
           loading: true,
           todos:[],
-          error:""
+          error:"",
+    
         }
       case EDIT_TODO_SUCCESS:
         return {
           loading: false,
           todos: action.payload,
-          error:""
+          error:"",
+    
         }
         case DELETE_TODO_FAIL:
         return {
           loading: false,
           todos:[],
-          error:action.payload
+          error:action.payload,
+    
         }
       case DELETE_TODO_LOADING:
         return {
           loading: true,
           todos:[],
-          error:""
+          error:"",
+    
         }
       case DELETE_TODO_SUCCESS:
         return {
           loading: false,
           todos: action.payload,
-          error:""
-        }
-      default:
-        return state
-    }
+          error:"",
+        } 
+      }   
   };
-  
   
   export default todoReducer;

@@ -7,10 +7,9 @@ import { editTodoType, getTodoType } from "../redux/todo/todoTypes";
 import TodoEditedForm from "./TodoEditedForm";
 
 
-const Todos = ({sendTodoId}:any) => {
+const Todos = ({changeEditForm,showEdit}:any) => {
     const dispatch = useDispatch();
   const todoState = useSelector((state:RootStore) => state.todo);
-  const [showEdit,setShowEdit]=useState(false)
   console.log(todoState.todos instanceof Array)
   useEffect(()=>{
     dispatch(GetTodos())
@@ -24,10 +23,7 @@ const Todos = ({sendTodoId}:any) => {
     }  
     }
   }
-  const changeEditForm=(id:number|string)=>{
-    setShowEdit(!showEdit)
-    sendTodoId(id)
-  }
+
     return ( 
         <div className="flex flex-col gap-3 justify-between items-center mb-10">
                {todoState.todos &&  todoState.todos instanceof Array &&

@@ -10,6 +10,8 @@ export const EDIT_TODO_SUCCESS = "EDIT_TODO_SUCCESS";
 export const DELETE_TODO_LOADING = "DELETE_TODO_LOADING";
 export const DELETE_TODO_FAIL = "DELETE_TODO_FAIL";
 export const DELETE_TODO_SUCCESS = "DELETE_TODO_SUCCESS";
+export const SHOW_TODO_EDIT_BOX="SHOW_TODO_EDIT_BOX";
+export const HIDE_TODO_EDIT_BOX="HIDE_TODO_EDIT_BOX"
 
 export type getTodoType={
     id: number,
@@ -34,7 +36,6 @@ export type editTodoCompletedType={
 }
 
 export type TodosType = {
-  map: any;
   abilities: getTodoType[],
 }
 
@@ -88,6 +89,7 @@ export interface deleteTodoLoading {
     type: typeof DELETE_TODO_SUCCESS,
     payload: TodosType
   }
+
 export type GetTodoDispatchTypes = getTodoSuccess | getTodoLoading | getTodoFail
 export type AddTodoDispatchTypes =addTodoLoading|addTodoSuccess|addTodoFail
 export type EditTodoDispatchTypes =editTodoLoading|editTodoSuccess|editTodoFail
